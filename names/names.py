@@ -12,6 +12,7 @@ def printDuplicates(tree1, tree2):
     # Create two stacks for two inorder traversals  
     s1 = []                                 # stack 1 initialized to an empty list                  
     s2 = []                                 # stack 2 initialized to an empty list
+    count = 0
   
     while True: # do until break (zero nodes left to traverse)
           
@@ -33,6 +34,7 @@ def printDuplicates(tree1, tree2):
             # If current keys in two trees are same  
             if tree1.key == tree2.key:      # if a duplicate found
                 print(tree1.key, end = "\n")# print the duplicate list
+                count += 1
                 s1.pop(-1)                  # delete the duplicate value found in stack 1
                 s2.pop(-1)                  # delete the duplicate value found in stack 2
   
@@ -52,6 +54,7 @@ def printDuplicates(tree1, tree2):
   
         # Both trees and both stacks are empty (traversing is complete and nothing is left)
         else: 
+            print("Total Duplicates Found: " + str(count))
             break                           # get out
 
 def insert(node, key):                      # for every node, insert the name (key)
@@ -95,8 +98,6 @@ if __name__ == '__main__':                  # module to run directly
 
     print("Duplicates: ")                   # label: Duplicates
     printDuplicates(tree1, tree2)           # print duplicates
-    total = len(tree1.key) + len(tree2.key) # get a count of names (keys) in each tree object
-    print("Total found: " + str(total))     # print out the total
 
 # duplicates = []  # Return the list of duplicates in this data structure
 
